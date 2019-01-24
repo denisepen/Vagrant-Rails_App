@@ -4,6 +4,7 @@
 # Summary
 This is a Rails application using Rails for both the front-end and backend. Jquery was used for interactivity and accessing the api.
 Omniauth was used to provide login with Facebook.
+This application has a vagrant file is configured to be used in a vagrant environment.  It also has datadog agent installed to track application services (the application and database) as well as application resources (application routes & actions).
 
 This application is a website for a restaurant called Chez Denise. As a user, you can visit the menu and view every meal offered and add meals to you order. You can also create reviews for the restaurant as well as view the reviews of other restaurant patrons.
 
