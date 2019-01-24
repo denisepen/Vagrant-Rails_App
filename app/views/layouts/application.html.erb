@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Chez Denise</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,600">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="login">
+            <ul>
+              <li><%= login_helper %></li>
+            </ul>
+        </div>
+        <div class="logo">
+          <a href="<%= root_url %>">chez denise</a>
+        </div>
+        <nav>
+          <ul>
+            <li><%= link_to "menu", meals_path%></li>
+            <li><%= link_to "reviews", reviews_path%></li>
+            <l1> <%= admin_items %></l1>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+      <%= flash_helper %>
+    <%= yield %>
+
+    <div class="social-links">
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    <!-- <script src="../app/assets/javascripts/index.js"></script> -->
+  </body>
+</html>

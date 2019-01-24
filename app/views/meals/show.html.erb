@@ -1,0 +1,21 @@
+  <div class="meal">
+  <div >
+    <a  style="font-size: 18px; color: red;" href="#" class="js-prev" data-id="<%=@meal.id%>"><= Previous </a>
+    <a  style="font-size: 18px; color: red;" href="#" class="js-next" data-id="<%=(@meal.id) %>"> Next =></a>
+  </div>
+
+
+  <h1 id="mealName"><%= @meal.name %>  </h1>
+
+<h3 id="mealDescription"><%= @meal.description %>  </h3>
+
+<h4 id="mealPrice"> Price: <%= number_to_currency(@meal.price) %>  </h4>
+<h4 id="mealCalories"> <%= @meal.calorie_count %> Calories </h4>
+
+<!-- Removed edit functionality from show page bc when next/prev included edit was pilling the wrong params[:id] -->
+<!-- <h4><%# link_to "Edit", edit_meal_path(@meal) if current_user && is_admin?  %></h4> -->
+
+ <br>
+
+<%= link_to "Add to Order", new_order_path %><br> <br>
+</div>

@@ -1,0 +1,13 @@
+<%# render 'users/errors' %>
+
+
+
+<%# binding.pry %>
+ <%= form_for @user, url: signin_path(@user), :method => "post" do |f|   %>
+ <p class="form-title">Sign In</p>
+ <%= f.label :email %>
+ <%= f.text_field :email%> <br>
+ <%= f.label :password %>
+ <%= f.password_field :password%> <br>
+ <%= f.submit "Sign In" %>
+ <% end %>

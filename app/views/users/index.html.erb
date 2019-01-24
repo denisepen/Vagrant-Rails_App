@@ -1,0 +1,19 @@
+<h1>Customer List</h1>
+
+<% @users.each do |c| %>
+    <% if !c.admin %>
+  Name: <%= c.named %> <br>
+
+  Email: <%= c.email %> <br>
+
+  <%if c.trips %>
+  Orders: <br>
+  <% c.trips.each do |trip| %>
+    Date: <%= link_to (trip.date).strftime("%m/%d/%Y"), user_trip_path(c.id, trip.id) %>
+    Total: <%= number_to_currency(trip.total)  %> <br>
+    Comment: <%=  trip.comment if trip.comment %> <br>
+    <% end %>
+    <% end %>
+    <hr>
+    <% end %>
+  <% end %>

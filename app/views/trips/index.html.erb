@@ -1,0 +1,38 @@
+<div id="trips">
+<h1>Order History</h1>
+
+<div class = "filter trip-filter">
+  <%= form_tag("/trips", method: "get") do %>
+    <h3>Filter Orders:</h3>
+    Category <%= select_tag "date", options_for_select(["Past Hour", "Today", "This Week", "This Year"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
+<table class="trips-table">
+  <tr>
+    <th style="text-align: left;">Date</th>
+    <th style="text-align: left;">Order No.</th>
+    <th style="text-align: left;">Name</th>
+    <th style="text-align: left;">Order Total</th>
+  </tr>
+  <% if @trips %>
+  <% @trips.each do |trip|%>
+    <tr data-id="<%=trip.id %>" class="userMeals">
+      <% if trip.user %>
+        <td><%=  trip.date.strftime("%m/%d/%y, %l:%M %p") %></td>
+        <td><%=  trip.id %></td>
+        <td ><%= link_to trip.user.named, user_path(trip.user) %></td>
+        <%  @trip_total = trip.total %>
+        <% @sum_of_totals+= @trip_total %>
+        <td><%= number_to_currency(@trip_total) %></td>
+      <% end %>
+    </tr>
+    <tr><td id= "mealDescription-<%= trip.id  %>" style="display: none;"></td></tr>
+    <% end %>
+  <% end %>
+
+   <h2>Sum Total: <%= number_to_currency(@sum_of_totals) %></h2>
+
+</table>
+</div>

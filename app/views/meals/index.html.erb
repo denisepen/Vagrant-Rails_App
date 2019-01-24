@@ -1,0 +1,37 @@
+
+<div class="meals">
+    <h1>Menu</h1> <br>
+
+
+
+    <div class = "filter">
+      <%= form_tag("/meals", method: "get") do %>
+        Category <%= select_tag "category", options_for_select(["Main", "Side", "Dessert", "Drink"]), include_blank: true %>
+        Low Calorie <%= select_tag "calorie_count", options_for_select(["Low Cal"]), include_blank: true %>
+        <%= button_tag "Filter" %>
+      <% end %>
+    </div> <br>
+
+  <table id="meals">
+    <tr>
+      <!-- <th onclick="getMeals()">Meal</th> -->
+      <th >Meal</th>
+      <th>Price</th>
+      <th><% %></th>
+    </tr>
+  <% @meals.each do |meal| if @meals %>
+    <tr id="meals-list">
+      <td><b><%= link_to meal.name,  meal_path(meal), class: 'descrip' %></b></td>
+       <td><%= number_to_currency(meal.price) %></td>
+       <td ></td>
+      <% if current_user && current_user.admin %>
+      <td> <%= link_to "Delete", meal, method: :delete  %> | <%= link_to "Edit", edit_meal_path(meal)  %>  |  <%= link_to "Show", meal_path(meal)  %></td>
+
+        <% end %>
+        <% end %>
+    </tr>
+    <tr><td class= "mealDescription-<%= meal.id  %>" style="display: none;"></td></tr>
+
+  <% end %>
+</table>
+</div>
